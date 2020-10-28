@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
-  before_action :require_admin, only: [:destroy]
   def new
     @user = User.new
   end
@@ -43,6 +42,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    session[:user_id] = nil if @user == current_user
     flash[:danger] = "User and all articles created by user have been deleted"
     redirect_to users_path
   end
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 
   def require_admin
     if logged_in? and !current_user.admin?
-      flash[:danger] = "Only admin users cand perform that action"
+      flash[:danger] = "Only admin users can perform that action"
       redirect_to root_path
     end
   end
