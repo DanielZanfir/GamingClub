@@ -1,0 +1,10 @@
+accessibility: missing requiered lang attribute: am adaugat atributul lang pentru a specifica limba componentelor 
+
+
+deprecated html attributes: atribute html vechi, le-am inlocuit cu atribute noi. de ex text align='center' cu class="text-center mt-4"
+
+
+javaScript and TypeScript: Validity issues 'this' expression which references the global object. Aveam intr-o metoda care apela call(this). Eu unul nici macar nu am umblat in fisierul respectiv. Imi sugera ca acel this e useless asa ca l-am sters si din fericere programul nu a crapat
+
+
+JSON and JSON5 copilance with json schema; string violates the patters ^(?:@[a-z0-9-*~][a-z0-9-*_~]*\/)?[a-z0-9-~][a-z0-9-_~]*$. am gresit ca am scris Proiect, trebuia cu p mic, adica proiect
